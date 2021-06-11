@@ -10,11 +10,12 @@ import {
   Flex,
   Stack,
   StackDivider,
+  Square,
 } from "@chakra-ui/react";
 import { db } from "../config/firebaseConfig";
 import uploadImage from "../bin/uploadImage";
 
-function Registration() {
+function RegistrationForWebinar() {
   const defaultForm = {
     kompetisi: "",
     asal_sekolah: "",
@@ -102,113 +103,29 @@ function Registration() {
   }
 
   return (
-    <div className="registration">
+    <div className="registration_for_staff">
       <Navbar />
       <Container maxW="container.md">
-        <Stack
-          spacing="100px"
-          divider={<StackDivider borderColor="black" align="stretch" />}
-        >
+        <Stack>
           <form onSubmit={handleSubmitForm}>
             <Box>
-              <Text fontSize="sm">Kompetisi</Text>
-              <Select
-                placeholder="Pilih Kompetisi"
-                size="sm"
-                name="kompetisi"
-                value={form.kompetisi}
-                onChange={handleChangeInput}
-              >
-                <option value="Sepak Catur">Sepak Catur</option>
-                <option value="Tenis Kursi">Tenis Kursi</option>
-                <option value="Polo Api">Polo Api</option>
-              </Select>
-            </Box>
-
-            <Box>
-              <Text fontSize="sm">Asal Sekolah</Text>
+              <Text fontSize="sm">Nama Lengkap</Text>
               <Input
                 size="sm"
-                name="asal_sekolah"
-                value={form.asal_sekolah}
+                name="nama_lengkap"
+                value=""
                 onChange={handleChangeInput}
               />
             </Box>
 
-            <Box>
-              <Text fontSize="sm">Nama Ketua Tim</Text>
-              <Input
-                size="sm"
-                name="nama_ketua_tim"
-                value={form.nama_ketua_tim}
-                onChange={handleChangeInput}
-              />
-            </Box>
-
-            <Box>
-              <Text fontSize="sm">Nama Anggota 1</Text>
-              <Input
-                size="sm"
-                name="nama_anggota_1"
-                value={form.nama_anggota_1}
-                onChange={handleChangeInput}
-              />
-            </Box>
-
-            <Box>
-              <Text fontSize="sm">Nama Anggota 2</Text>
-              <Input
-                size="sm"
-                name="nama_anggota_2"
-                value={form.nama_anggota_2}
-                onChange={handleChangeInput}
-              />
-            </Box>
-
-            <Box>
-              <Text fontSize="sm">Email Ketua Tim</Text>
-              <Input
-                size="sm"
-                type="email"
-                name="email_ketua_tim"
-                value={form.email_ketua_tim}
-                onChange={handleChangeInput}
-              />
-            </Box>
-
-            <Box>
-              <Text fontSize="sm">File Pembayaran (.pdf | max 4 MB)</Text>
-              <Input
-                onChange={handleSelectFile}
-                size="sm"
-                border="false"
-                id="filePembayaran"
-                name="file_pembayaran"
-                type="file"
-                className="filePembayaran"
-              />
-            </Box>
-
-            <Box>
-              <Text fontSize="sm">
-                File Formulir Pendaftaran (.pdf | max 4 MB)
-              </Text>
-              <Input
-                onChange={handleSelectFile}
-                size="sm"
-                border="false"
-                id="filePendaftaran"
-                name="file_formulir_pendaftaran"
-                type="file"
-                className="filePendaftaran"
-              />
-            </Box>
+            {/*  */}
 
             <Flex>
               <Button
                 colorScheme="teal"
                 type="submit"
                 flex="1"
+                my={5}
                 onClick={handleSubmitForm}
               >
                 Submit
@@ -221,4 +138,4 @@ function Registration() {
   );
 }
 
-export default Registration;
+export default RegistrationForWebinar;
